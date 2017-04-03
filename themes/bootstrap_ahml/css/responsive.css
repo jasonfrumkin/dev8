@@ -1,0 +1,235 @@
+
+
+
+@media only screen and (max-width: 1060px) {
+  .nav-full-mod {
+    width:100% !important;
+  }
+}
+@media only screen and (min-width: 1960px) {
+  .row.resultBox.views-row {
+      float: left;
+      width: 47%;
+      margin-right: 3%;
+  }
+  .col-sm-3 {
+  max-width: 300px;
+  }
+}
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) {
+  .red-arrow-left-calltoaction {
+        display: none;
+    }
+  .navbar-header {
+    position: inherit;
+  }
+  .centered {
+      width: 100%;
+      margin: auto;
+      padding-left: 15px;
+      padding-right: 15px;
+  }
+  #superfish-main-toggle {
+      width: 96%;
+      margin: 2%;
+  }
+  #logo {
+      width: 97% !important;
+   }
+   .col-sm-10.slide_over {
+    float: none;
+  }
+  .centered img {
+      width: 100%;
+  }
+  .red-arrow-left {
+  z-index:-10;
+  }
+  .light-green-arrow-right {
+      position: absolute;
+      width: 0;
+      top: -80px;
+      height: 0;
+      border-top: 208px solid transparent;
+      border-bottom: 208px solid transparent;
+      border-left: 242px solid #c7d6d0;
+  }
+  p {
+  font-weight:bold;
+  color:black;
+  }
+
+}
+/* ----------- HTC One ----------- */
+
+/* Portrait and Landscape */
+@media screen
+  and (device-width: 360px)
+  and (device-height: 640px)
+  and (-webkit-device-pixel-ratio: 3) {
+
+}
+
+/* Portrait */
+@media screen
+  and (device-width: 360px)
+  and (device-height: 640px)
+  and (-webkit-device-pixel-ratio: 3)
+  and (orientation: portrait) {
+
+}
+
+/* Landscape */
+@media screen
+  and (device-width: 360px)
+  and (device-height: 640px)
+  and (-webkit-device-pixel-ratio: 3)
+  and (orientation: landscape) {
+
+}
+/* ----------- iPhone 4 and 4S ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+}
+
+/* Portrait */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+}
+
+/* Landscape */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+
+}
+
+/* ----------- iPhone 5 and 5S ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+}
+
+/* Portrait */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+}
+
+/* Landscape */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+
+}
+
+/* ----------- iPhone 6 ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+}
+
+/* Portrait */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+
+}
+
+/* Landscape */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+
+}
+
+/* ----------- iPhone 6+ ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 414px)
+  and (max-device-width: 736px)
+  and (-webkit-min-device-pixel-ratio: 3) {
+
+}
+
+/* Portrait */
+@media only screen
+  and (min-device-width: 414px)
+  and (max-device-width: 736px)
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) {
+
+}
+
+/* Landscape */
+@media only screen
+  and (min-device-width: 414px)
+  and (max-device-width: 736px)
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) {
+
+}
+@media only screen and (max-width: 700px) {
+   #superfish-main-toggle {
+      width: 96%;
+      margin: 2%;
+  }
+  #logo {
+      width: 97% !important;
+   }
+  .red-arrow-left-calltoaction {
+      display: none;
+  }
+  .centered {
+      width: 100%;
+      margin: auto;
+      padding-left: 15px;
+      padding-right: 15px;
+  }
+  .centered img {
+      width: 100%;
+  }
+  .red-arrow-left {
+  z-index:-10;
+  }
+  .light-green-arrow-right {
+      position: absolute;
+      width: 0;
+      top: -80px;
+      height: 0;
+      border-top: 208px solid transparent;
+      border-bottom: 208px solid transparent;
+      border-left: 242px solid #c7d6d0;
+  }
+  p {
+  font-weight:bold;
+  color:black;
+  }
+}

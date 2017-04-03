@@ -1,0 +1,12 @@
+body {
+  background-color: #dcdcdc !important;
+}
+.bib {
+    width: 90%;
+    padding: 30px;
+    background-color: white;
+    margin-left:5%;
+    margin-bottom:25px;
+    float:left;
+    clear:both;
+}

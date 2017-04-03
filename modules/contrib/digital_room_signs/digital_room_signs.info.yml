@@ -1,0 +1,4 @@
+name: 'Digital Room Signage'
+description: 'AHML Module for digital display of event list per room.'
+core: 8.x
+type: module

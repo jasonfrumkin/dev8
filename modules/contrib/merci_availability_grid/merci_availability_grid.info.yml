@@ -1,0 +1,8 @@
+name: 'MERCI Availability Grid'
+package: MERCI
+description: 'Extends the MERCI module with a grid that shows real-time availability of all bookable resources.'
+core: 8.x
+dependencies:
+  - merci
+type: module
+configure: merci_availability_grid.admin_settings

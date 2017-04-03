@@ -1,0 +1,57 @@
+merci_availability_grid.availability_page:
+  path: '/merci/availabilitygrid'
+  defaults:
+    _title: 'Check Room Availability'
+    _controller: '\Drupal\merci_availability_grid\Controller\DefaultController::merci_availability_grid_availability_page'
+  requirements:
+    _permission: 'access content'
+merci_availability_grid.admin_settings:
+  path: '/admin/merci/config/availabilitygrid'
+  defaults:
+    _title: 'Availability Grid'
+    _form: '\Drupal\merci_availability_grid\Form\MerciAvailabilityGridAdminSettings'
+  requirements:
+    _permission: 'administer site configuration'
+merci_availability_grid.main:
+  path: '/merci/main'
+  defaults:
+    _title: 'Availability Grid'
+    _form: '\Drupal\merci_availability_grid\Form\MerciAvailabilityGridMain'
+  requirements:
+    _permission: 'access content'
+merci_availability_grid.prev:
+  path: '/merci/prev'
+  defaults:
+    _form: '\Drupal\merci_availability_grid\Form\MerciAvailabilityGridPrev'
+  requirements:
+    _permission: 'access content'
+merci_availability_grid.modify_reservation:
+  path: '/merci/availabilitygrid/modify'
+  defaults:
+    _controller: '\Drupal\merci_availability_grid\Controller\ModifyReservationAjaxController::ModifyReservationCallback'
+  requirements:
+    _permission: 'access content'
+merci_availability_grid.estend_reservation:
+  path: '/merci/availabilitygrid/extend'
+  defaults:
+    _controller: '\Drupal\merci_availability_grid\Controller\ExtendReservationAjaxController::ExtendReservationCallback'
+  requirements:
+    _permission: 'access content'
+merci_availability_grid.cancel_reservation:
+  path: '/merci/availabilitygrid/cancel'
+  defaults:
+    _controller: '\Drupal\merci_availability_grid\Controller\CancelReservationAjaxController::CancelReservationCallback'
+  requirements:
+    _permission: 'access content'
+merci_availability_grid.checkin_reservation:
+  path: '/merci/availabilitygrid/checkin'
+  defaults:
+    _controller: '\Drupal\merci_availability_grid\Controller\CheckinReservationAjaxController::CheckinReservationCallback'
+  requirements:
+    _permission: 'access content'
+merci_availability_grid.checkout_reservation:
+  path: '/merci/availabilitygrid/checkout'
+  defaults:
+    _controller: '\Drupal\merci_availability_grid\Controller\CheckoutReservationAjaxController::CheckoutReservationCallback'
+  requirements:
+    _permission: 'access content'

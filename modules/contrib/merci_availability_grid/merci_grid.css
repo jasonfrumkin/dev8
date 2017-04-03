@@ -1,0 +1,213 @@
+span.form-required {
+  float: left;
+  width: 106px;
+}
+#feedback { font-size: 1.4em; }
+#selectable .ui-selecting { background: #FECA40 !important; }
+#selectable .ui-selected { background: #F39814 !important; color: white !important; }
+#selectable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+.ui-widget-content {border:white;}
+#selectable { width: inherit !important; }
+#selectable li { margin: 0px; padding: 0px; font-size: 18px; height: 20px; }
+.notAvailable { background:#c99; width:12px; }
+.notAvailable_checkout { background:#C55B5B; width:12px; }
+.Available { background:#83D783; }
+span.nobold {
+  font-weight: initial;
+  font-size:10px !important;
+}
+.ahml-conflict-chart {
+	margin-top:25px;
+}
+
+.form-item label { display: inline-block; }
+span.form-required { float: none; }
+.container-inline { display: inline; }
+
+#merci-availability-grid-next-day-form .form-item-start-date,
+#merci-availability-grid-prev-day-form .form-item-start-date {
+	display: none;
+}
+#merci-availability-grid-availability-page-form .form-item-start-date,
+#merci-availability-grid-next-day-form #edit-submit--3,
+#merci-availability-grid-prev-day-form #edit-submit--2 {
+	float:left;
+}
+#merci-availability-grid-availability-page-form button {
+    float: left;
+    margin-top: 25px;
+    margin-left: 40px;
+}
+#gridText {
+	clear: both;
+}
+.form-item-selection-fieldset-group-entity {
+    float: left;
+    margin-right: 50px;
+}
+.form-item-start-date {
+    margin-top: 10px;
+}
+#empty-wrapper {
+    float: left;
+    border-left: 1px solid #ccc;
+    height: 200px;
+    margin-right: 50px;
+}
+#edit-selection-fieldset p.help-block {
+    font-size: 38px;
+    color: #f00 !important;
+    background-color: #fff !important;
+}
+.form-type-checkboxes.form-item-selection-fieldset-group-entity .form-checkboxes,
+#nid-wrapper .form-type-checkboxes .form-checkboxes {
+  -moz-column-count: 5;
+  -moz-column-gap: 10px;
+  -webkit-column-count: 5;
+  -webkit-column-gap: 10px;
+  column-count: 5;
+  column-gap: 10px;
+}
+
+label[for="edit-selection-fieldset-merci-item-nid"],
+label[for="edit-selection-fieldset-group-entity"] {
+  font-size: 22px;
+}
+.gridHeader {
+  width: 123px;
+text-align: left;
+font-size: 12px;
+font-weight: bold;
+padding-top: 2px;
+}
+.gridTable{
+  margin: 0px 0px 20px 0px;
+  padding: 0px 0px 15px 0px;
+  border-spacing: 0px;
+  clear: both;
+}
+.Table {
+  /*display: table;*/
+}
+.Title {
+  display: table-caption;
+  text-align: left;
+  font-weight: bold;
+  font-size: larger;
+}
+.Heading {
+  display: table-row;
+  font-weight: bold;
+  text-align: left;
+}
+.Row {
+  display: table-row;
+}
+.Cell {
+  float: left;
+  border: none;
+}
+.Heading .Cell {
+  width: 56px;
+}
+.borderedCell{
+  border-right:2px black solid;
+  margin:0px;
+  padding:0px;
+  border-spacing:0px;
+  width: 14px;
+}
+.noBorderCell{
+  margin:0px;
+  padding:0px;
+  border-spacing:0px;
+  border:none;background:none;
+  width: 14px;
+}
+.reservation_time_th { float:left; }
+.HeadingOffset {
+    float: left;
+    width: 122px;
+}
+.moving1 {
+  width: 13.75px !important;
+}
+.moving2 {
+  width: 27.5px !important;
+}
+.moving3 {
+  width: 41.25px !important;
+}
+.moving4 {
+  width: 55px !important;
+}
+.moving5 {
+  width: 68.75px !important;
+}
+.moving6 {
+  width: 82.5px !important;
+}
+.moving7 {
+  width: 96.25px !important;
+}
+.moving8 {
+  width: 110px !important;
+}
+.moving9 {
+  width: 123.75px !important;
+}
+.moving10 {
+  width: 137.50px !important;
+}
+.moving11 {
+  width: 151.25px !important;
+}
+.moving12 {
+  width: 165px !important;
+}
+#extensionArea {
+  width: 345px;
+  height: 50px;
+  background-color: #ddd;
+  padding: 15px 0px 0px 60px;
+  font-weight: bold;
+}
+
+#cancelArea {
+    width: 345px;
+    height: 50px;
+    background-color: #ddd;
+    margin-top: 20px;
+    padding: 15px 0px 0px 115px;
+    font-weight: bold;
+}
+#checkInArea {
+    width: 345px;
+    height: 50px;
+    background-color: #ddd;
+    margin-top: 20px;
+    padding: 15px 0px 0px 125px;
+    font-weight: bold;
+}
+#checkOutArea {
+    width: 345px;
+    height: 50px;
+    background-color: #ddd;
+    margin-top: 20px;
+    padding: 15px 0px 0px 118px;
+    font-weight: bold;
+}
+.lightSquare {
+  background: #BBEABC;
+}
+.hovering {
+  background-color: #999 !important;
+}
+#merci-availability-grid-next .form-item-start-date,
+#merci-availability-grid-prev .form-item-start-date {
+    display: none;
+}
+#merci-availability-grid-next button,
+#merci-availability-grid-prev button {
+  float: left;
+}

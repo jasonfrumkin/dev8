@@ -1,0 +1,25 @@
+global-styling:
+  css:
+    theme:
+      css/style.css: {}
+      js/jquery-ui.min.css: {}
+
+  js:
+    js/jquery.lockfixed.js: {}
+    js/custom_script.js: {}
+    js/jquery.sticky.js: {}
+
+studio-page:
+ css:
+  theme:
+   css/studio_css.css: {}
+
+catalog-search:
+ css:
+  theme:
+   css/catalog_search.css: {}
+
+research-databases_a-z:
+ css:
+  theme:
+   css/databases.css: {}

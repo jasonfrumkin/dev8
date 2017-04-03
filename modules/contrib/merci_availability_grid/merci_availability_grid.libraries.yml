@@ -1,0 +1,13 @@
+merci_availability_grid:
+ version: 3.x
+ css:
+  theme:
+   merci_grid.css: {}
+   jquery-ui.css: {}
+   jquery.contextMenu.css: {}
+ js:
+   merci_grid.js: {}
+   jquery-ui.js: {}
+   jquery.tablesorter.min.js: {}
+   jquery.ui.position.js: {}
+   jquery.contextMenu.js: {}

@@ -1,0 +1,17 @@
+global-styling:
+  css:
+    theme:
+      css/style.css: {}
+      js/jquery-ui.min.css: {}
+  js:
+    js/custom_script.js: {}
+
+studio-page:
+ css:
+  theme:
+   css/studio_css.css: {}
+
+catalog-search:
+ css:
+  theme:
+   css/catalog_search.css: {}

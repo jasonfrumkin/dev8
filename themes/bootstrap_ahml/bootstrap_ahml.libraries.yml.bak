@@ -1,0 +1,13 @@
+global-styling:
+  css:
+    theme:
+      css/style.css: {}
+      js/jquery-ui.min.css: {}
+      //cloud.typography.com/6999894/7270772/css/fonts.css: { type: external }
+    js/custom_script.js: {}
+    js/jquery-ui.min.js: {}
+
+studio-page:
+ css:
+  theme:
+   css/studio_css.css: {}

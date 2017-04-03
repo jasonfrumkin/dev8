@@ -1,0 +1,144 @@
+<?php
+
+/**
+ * @file
+ * merci_availability_grid.module
+ */
+
+/**
+ * Implements hook_permission().
+ *
+ * Defines a new permission called 'access grid'.
+ */
+function merci_availability_grid_permission() {
+  return array(
+    'access grid' => array(
+      'title' => 'Access Grid',
+      'description' => 'Allows users to view the Merci Availability Grid.',
+    ),
+  );
+}
+/**
+ * Implementation of hook_theme()
+ */
+function merci_availability_grid_theme($existing, $type, $theme, $path) {
+  return [
+    'availability_grid' => [
+      'template' => 'availability-grid',
+      'variables' => ['avail_form' => NULL, 'conflict_info' => NULL, 'prev_form' => NULL, 'next_form' => NULL],
+    ],
+    'merci_availability_grid_theme_availability_grid' => [
+      'template' => 'merci-availability-grid-theme-availability-grid',
+      'variables' => ['avail_form' => NULL],
+    ],
+    'merci_availability_grid_theme_conflict' => [
+      'template' => 'merci-availability-grid-theme-conflict',
+      'variables' => ['conflict_info' => NULL],
+    ],
+    'merci_availability_grid_theme_prev' => [
+      'template' => 'merci-availability-grid-theme-prev',
+      'variables' => ['prev_form' => NULL],
+    ],
+    'merci_availability_grid_theme_next' => [
+      'template' => 'merci-availability-grid-theme-next',
+      'variables' => ['next_form' => NULL],
+    ],
+  ];
+}
+
+/**
+ * Implementation of hook_form_alter().
+ *
+ */
+function merci_availability_grid_form_alter(&$form, \Drupal\Core\Form\FormStateInterface &$form_state, $form_id) {
+  if ($form_id == 'reservation_node_form') {
+    if (!empty($_GET['nid'])) {
+    	$sent_nid = $_GET['nid'];
+    	$sent_date = $_GET['date'] . ' ' . $_GET['time'];
+      if($_GET['time2'] != "") {
+        $sent_date2 = $_GET['date'] . ' ' . $_GET['time2'];
+    	}
+
+    	$sent_timestamp = strtotime($sent_date);
+      if(isset($sent_date2)){
+        $end_timestamp = strtotime($sent_date2);
+      }
+      else{
+    	  $end_timestamp = $sent_timestamp + 60*120;
+      }
+    	//$time_start = date('Y-m-d H:i:s', $sent_timestamp);
+      $time_start = format_date($sent_timestamp, 'custom', t('Y-m-d H:i:s', array(), array('context' => 'php date format')), 'UTC');
+    	$time_end = format_date($end_timestamp, 'custom', t('Y-m-d H:i:s', array(), array('context' => 'php date format')), 'UTC');
+
+      $form['field_resource'][\Drupal\Core\Language\Language::LANGCODE_NOT_SPECIFIED]['#default_value'] = (string) $sent_nid;
+
+    	$form['field_date'][\Drupal\Core\Language\Language::LANGCODE_NOT_SPECIFIED]['0']['#default_value']['value'] = $time_start;
+
+    	$form['field_date'][\Drupal\Core\Language\Language::LANGCODE_NOT_SPECIFIED]['0']['#default_value']['value2'] = $time_end;
+    }
+  }
+
+  if ($form_id == 'node_repeat_node_settings_form') {
+	  $form['#validate'][] = 'merci_availability_grid_node_repeat_node_settings_form_validate';
+  }
+}
+
+/**
+* Additional validation handler for node repeat form.
+*/
+function merci_availability_grid_node_repeat_node_settings_form_validate ($form, &$form_state) {
+  if (isset($form_state['values']['newsequence'])) {
+    $nid = $form_state['values']['nid'];
+    $node = \Drupal::entityManager()->getStorage('node')->load($nid);
+
+
+//  $field_name = variable_get('node_repeat_type_'. $node->type, 0);
+    $field_name = \Drupal::state()->get('node_repeat_type_'. $node->type) ?: 0;
+    $field = $node->$field_name;
+    $date_type = $field[0]['date_type'];
+    $date_format = node_repeat_get_date_format($date_type);
+    $start_date = $field[0]['value'];
+    if (isset($field[0]['value2']) && !empty($field[0]['value2'])) {
+      $date_diff = date_difference(date_make_date($start_date, NULL, $date_type), date_make_date($field[0]['value2'], NULL, $date_type));
+    }
+    $date_tz = $field[0]['timezone'];
+    $date_tzdb = $field[0]['timezone_db'];
+
+    $rrule = $form_state['values']['newsequence']['rrule'];
+    $rrule_fields = date_ical_parse_rrule(NULL, $rrule);
+
+    $start_datetime = date_convert($start_date, $date_type, DATE_DATETIME);
+    $datetimes = date_repeat_calc($rrule, $start_datetime, $rrule_fields['UNTIL']['datetime']);
+    array_shift($datetimes);
+
+	  $source_date_1 = $node->field_merci_date['0']['value'];
+	  $source_date_2 = $node->field_merci_date['0']['value2'];
+    $source_start_split = explode(" ", $source_date_1);
+    $source_end_split = explode(" ", $source_date_2);
+
+    foreach ($datetimes as $dt) {
+	     $current_date_split = explode(" ", $dt);
+	     $check_date_start = $current_date_split['0'] . ' ' . $source_start_split['1'];
+	     $check_date_end = $current_date_split['0'] . ' ' . $source_end_split['1'];
+	     $keys = array_keys($node->merci_reservation_items);
+	     $item = $node->merci_reservation_items[$keys[0]];
+	     $type = $item['type'];
+       $item_nid = $item['merci_item_nid'];
+       $title = $item['item_title'];
+	     $count = merci_is_item_reservable($item_nid, $type, $check_date_start, $check_date_end, NULL);
+	     if (!$count) {
+		      $message = merci_theme_conflict_grid($type, $title, $check_date_start, $check_date_end, $item_nid, NULL);
+		      form_set_error("", $message);
+		      continue;
+	     }
+    }
+  }
+}
+
+function get_default_options($reservation_entity){
+  $fields = \Drupal::entityManager()->getFieldDefinitions('node', $reservation_entity);
+  foreach ($fields as $field) {
+    $options[] = $field['field_name'];
+  }
+    return $options;
+}
